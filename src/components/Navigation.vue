@@ -55,5 +55,17 @@ header{
 nav{
     display: flex;
     padding: 25px 0;
+
+    .branding {
+        display: flex;
+        align-items: center;
+
+        .header{
+            font-weight: 600;
+            font-size: 24px;
+            color: #000;
+            text-decoration: none;
+        }
+    }
 }
 </style>
