@@ -37,4 +37,23 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+header{
+    background-color: #fff;
+    padding: 0 25px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 99;
+}
+.link{
+    font-weight: 500;
+    padding: 0 8px;
+    transition: .9s color ease;
+
+    &:hover{
+        color: #1eb8b8;
+    }
+}
+nav{
+    display: flex;
+    padding: 25px 0;
+}
 </style>
