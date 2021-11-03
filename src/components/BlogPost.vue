@@ -101,7 +101,7 @@ export default {
                 margin-top: 32px;
                 padding-bottom: 4px;
                 border-bottom: 1px solid transparent;
-                transition: .5 ease-in all;
+                transition: .5s ease-in all;
 
                 &:hover{
                     border-bottom-color: #303030
