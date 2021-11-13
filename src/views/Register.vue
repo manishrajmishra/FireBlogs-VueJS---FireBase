@@ -8,6 +8,10 @@ export default {
 }
 </script>
 
-<style lang-"scss" scoped>
-
+<style lang="scss" scoped>
+.register {
+  h2 {
+    max-width: 350px;
+  }
+}
 </style>
