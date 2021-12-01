@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div class="form-wrap">
+        <form class="login"></form>
+    </div>
 </template>
 
 <script>
