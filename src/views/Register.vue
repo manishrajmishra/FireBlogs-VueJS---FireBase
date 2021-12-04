@@ -2,10 +2,10 @@
     <div class="form-wrap">
         <form class="register">
           <p class="login-register">
-            Don't have an account ?
-            <router-link class="route-link" :to="{ name: 'Register' }">Register</router-link>
+            Already have an account ?
+            <router-link class="route-link" :to="{ name: 'Login' }">Login</router-link>
           </p>
-          <h2>Login to FireBlogs</h2>
+          <h2>Create Your FireBlog Account</h2>
           <div class="inputs">
             <div class="input">
               <input type="text" placeholder="First Name" v-model="firstName" />
@@ -28,7 +28,6 @@
               <password class="icon" />
             </div>
           </div>
-          <router-link class="forgot-password" :to="{ name: 'ForgotPassword' }">Forgot your Password</router-link>
           <button>Sign Up</button>
           <div class="angle"></div>
         </form>
