@@ -23,7 +23,7 @@
           <ul>
             <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
             <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
-            <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Create Post</router-link>
+            <router-link v-if="admin" class="link" to="#">Create Post</router-link>
             <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login In / Register</router-link>
           </ul>
         </div>
@@ -41,21 +41,13 @@ import twitter from "../assets/Icons/twitter-brands.svg";
 import instagram from "../assets/Icons/instagram-brands.svg";
 import linkedin from "../assets/Icons/linkedin-brands.svg";
 export default {
-  name: "footer-vue",
+  name: "Footer",
   components: {
     youTube,
     twitter,
     instagram,
     linkedin,
-  },
-  computed: {
-    user() {
-      return this.$store.state.user;
-    },
-    admin() {
-      return this.$store.state.profileAdmin;
-    },
-  },
+  }
 };
 </script>
 

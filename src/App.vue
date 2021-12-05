@@ -91,6 +91,12 @@ button,
   }
 }
 
+.error {
+  text-align: center;
+  font-size: 12px;
+  color: red;
+}
+
 .button-ghost {
   color: #000;
   padding: 0;
