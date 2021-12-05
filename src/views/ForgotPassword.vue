@@ -1,7 +1,7 @@
 <template>
   <div class="reset-password">
-    <Modal v-if="modalActive" @close-modal="closeModal" />
-    <Loading v-if="loading"/>
+    <Modal v-if="modalActive" :modalMessage="modalMessage" v-on:close-modal="closeModal" />
+    <Loading v-if="loading" />
     <div class="form-wrap">
       <form class="reset">
         <p class="login-register">
@@ -16,7 +16,7 @@
             <email class="icon" />
           </div>
         </div>
-        <button>Reset</button>
+        <button @click.prevent="resetPassword">Reset</button>
         <div class="angle"></div>
       </form>
       <div class="background"></div>
@@ -24,33 +24,50 @@
   </div>
 </template>
 
-
 <script>
 import email from "../assets/Icons/envelope-regular.svg";
-import Modal from '../components/Modal.vue'
-import Loading from '../components/Loading.vue'
+import Modal from "../components/Modal";
+import Loading from "../components/Loading";
+import firebase from "firebase/app";
+import "firebase/auth";
 export default {
   name: "ForgotPassword",
   data() {
     return {
       email: "",
       modalActive: false,
-      modalMessage: '',
-      loading: false
+      modalMessage: "",
+      loading: null,
     };
   },
   components: {
     email,
     Modal,
-    Loading
+    Loading,
   },
   methods: {
+    resetPassword() {
+      this.loading = true;
+      firebase
+        .auth()
+        .sendPasswordResetEmail(this.email)
+        .then(() => {
+          this.modalMessage = "If your account exists, you will receive a email";
+          this.loading = false;
+          this.modalActive = true;
+        })
+        .catch((err) => {
+          this.modalMessage = err.message;
+          this.loading = false;
+          this.modalActive = true;
+        });
+    },
     closeModal() {
-      this.modalActive = !this.modalActive
-      this.email = ''
-    }
-  }
-}
+      this.modalActive = !this.modalActive;
+      this.email = "";
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
