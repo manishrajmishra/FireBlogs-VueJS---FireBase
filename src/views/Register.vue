@@ -66,11 +66,11 @@ export default {
       if(this.email !== '' && this.firstName !== '' && this.lastName !== '' && this.password !== '' && this.userName !== ''){
         this.error = false
         this.errorMsg = ''
-        const firebaseAuth = await firebase.auth()
-        await firebaseAuth.createUserWithEmailAndPassword(this.email, this.password)
+        await firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
         .then((response) => {
-          const dataBase = db.collection("users").doc(response.user.uid)
-          dataBase.set({
+         db.collection("users").doc(response.user.uid).set({
             firstName: this.firstName,
             lastName: this.lastName,
             userName: this.userName,
@@ -81,10 +81,10 @@ export default {
         })
         .catch((error) => {
           console.log(error)
-          this.error = true
-          this.errorMsg = 'Please fill out all the fields!'
         })
       }
+      this.error = true
+      this.errorMsg = 'Please fill out all the fields!'
     }
     }
   }
