@@ -36,13 +36,13 @@
               </div>
             </div>
             <div class="options">
-              <div class="option">
+              <div @click="profileMenu = false" class="option">
                 <router-link class="option" :to="{ name: 'Profile' }">
                   <userIcon class="icon" />
                   <p>Profile</p>
                 </router-link>
               </div>
-              <div v-if="admin" class="option">
+              <div @click="profileMenu = false" v-if="admin" class="option">
                 <router-link class="option" :to="{ name: 'Admin' }">
                   <adminIcon class="icon" />
                   <p>Admin</p>
@@ -119,6 +119,7 @@ export default {
     },
     signOut() {
       firebase.auth().signOut();
+      this.profileMenu = !this.profileMenu
     },
   },
   computed: {
