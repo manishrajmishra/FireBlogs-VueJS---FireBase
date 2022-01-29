@@ -14,6 +14,12 @@ export default new Vuex.Store({
         { blogTitle: 'Blog Card #3', blogCoverPhoto: 'stock-3', blogDate: 'Nov 3 2021' },
         { blogTitle: 'Blog Card #4', blogCoverPhoto: 'stock-4', blogDate: 'Nov 4 2021' }
       ],
+    postLoaded: null,
+    blogHTML: "Write your blog title here...",
+    blogTitle: "",
+    blogPhotoName: "",
+    blogPhotoFileURL: null,
+    blogPhotoPreview: null,
     editPost: null,
     user: null,
     profileAdmin: null,
@@ -25,7 +31,13 @@ export default new Vuex.Store({
     profileInitials: null,
   },
   mutations: {
-    toggleEditPost(state, payload){
+    NEW_BLOG_POST(state, payload) {
+      state.blogHTML = payload;
+    },
+    UPDATE_BLOG_POST(state, payload) {
+      state.blogTitle = payload;
+    },
+    TOGGLE_EDIT_POST(state, payload){
       state.editPost = payload
       console.log(state.editPost)
     },
