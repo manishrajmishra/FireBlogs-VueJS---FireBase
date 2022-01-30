@@ -147,7 +147,7 @@ export default {
         return this.$store.state.blogTitle;
       },
       set(payload) {
-        this.$store.commit("UPDATE_BLOG_TITLE", payload);
+        this.$store.commit("UPDATE_BLOG_POST_TITLE", payload);
       },
     },
     blogHTML: {

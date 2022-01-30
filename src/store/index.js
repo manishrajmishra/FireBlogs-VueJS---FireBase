@@ -42,7 +42,7 @@ export default new Vuex.Store({
     NEW_BLOG_POST(state, payload) {
       state.blogHTML = payload;
     },
-    UPDATE_BLOG_POST(state, payload) {
+    UPDATE_BLOG_POST_TITLE(state, payload) {
       state.blogTitle = payload;
     },
     FILE_NAME_CHANGE(state, payload) {
