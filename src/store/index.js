@@ -30,12 +30,29 @@ export default new Vuex.Store({
     profileId: null,
     profileInitials: null,
   },
+  getters: {
+    blogPostsFeed(state) {
+      return state.blogPosts.slice(0, 2);
+    },
+    blogPostsCards(state) {
+      return state.blogPosts.slice(2, 6);
+    },
+  },
   mutations: {
     NEW_BLOG_POST(state, payload) {
       state.blogHTML = payload;
     },
     UPDATE_BLOG_POST(state, payload) {
       state.blogTitle = payload;
+    },
+    FILE_NAME_CHANGE(state, payload) {
+      state.blogPhotoName = payload;
+    },
+    CREATE_FILE_URL(state, payload) {
+      state.blogPhotoFileURL = payload;
+    },
+    OPEN_PHOTO_PREVIEW(state) {
+      state.blogPhotoPreview = !state.blogPhotoPreview;
     },
     TOGGLE_EDIT_POST(state, payload){
       state.editPost = payload

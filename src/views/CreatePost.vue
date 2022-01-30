@@ -1,7 +1,7 @@
 <template>
   <div class="create-post">
-    <!-- <BlogCoverPreview v-show="this.$store.state.blogPhotoPreview" />
-    <Loading v-show="loading" /> -->
+    <BlogCoverPreview v-show="this.$store.state.blogPhotoPreview" />
+    <Loading v-show="loading" />
     <div class="container">
       <div :class="{ invisible: !error }" class="err-message">
         <p><span>Error:</span>{{ this.errorMsg }}</p>
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-// import BlogCoverPreview from "../components/BlogCoverPreview";
-// import Loading from "../components/Loading";
+import BlogCoverPreview from "../components/BlogCoverPreview";
+import Loading from "../components/Loading";
 import firebase from "firebase/app";
 import "firebase/storage";
 import db from "../firebase/firebaseInit";
@@ -53,19 +53,19 @@ export default {
       },
     };
   },
-//   components: {
-//     BlogCoverPreview,
-//     Loading,
-//   },
+  components: {
+    BlogCoverPreview,
+    Loading,
+  },
   methods: {
     fileChange() {
       this.file = this.$refs.blogPhoto.files[0];
       const fileName = this.file.name;
-      this.$store.commit("fileNameChange", fileName);
-      this.$store.commit("createFileURL", URL.createObjectURL(this.file));
+      this.$store.commit("FILE_NAME_CHANGE", fileName);
+      this.$store.commit("CREATE_FILE_URL", URL.createObjectURL(this.file));
     },
     openPreview() {
-      this.$store.commit("openPhotoPreview");
+      this.$store.commit("OPEN_PHOTO_PREVIEW");
     },
     imageHandler(file, Editor, cursorLocation, resetUploader) {
       const storageRef = firebase.storage().ref();
